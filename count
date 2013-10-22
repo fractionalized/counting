@@ -1,0 +1,15 @@
+#!/usr/bin/env python2
+# -*- coding: utf8 -*-
+
+from backend import count, pretty_print
+
+import argparse
+parser = argparse.ArgumentParser(description='count the number of bosonic FCI states in each momentum sector')
+parser.add_argument('Ne', type=int, help='number of bosons')
+parser.add_argument('Nx', type=int, help='number of unit cells in the x direction')
+parser.add_argument('Ny', type=int, help='number of unit cells in the y direction')
+parser.add_argument('C', type=int, help='Chern number')
+args = parser.parse_args()
+
+Ne, Nx, Ny, C = args.Ne, args.Nx, args.Ny, args.C
+pretty_print(count(Ne, Nx, Ny, C), Nx, Ny)
